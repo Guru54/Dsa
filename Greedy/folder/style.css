@@ -1,0 +1,78 @@
+:root {
+  --bg: #0e0f12;
+  --panel: #151821;
+  --text: #e6e6e6;
+  --accent: #6ee7ff;
+  --dim: #9aa0aa;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background: radial-gradient(1200px 800px at 50% -200px, #1a2030 0%, var(--bg) 60%);
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+.container {
+  max-width: 960px;
+  margin: 24px auto;
+  padding: 0 16px 32px;
+}
+
+.topbar {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.topbar h1 {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--accent);
+  text-shadow: 0 0 10px rgba(110,231,255,0.2);
+}
+
+#scoreboard {
+  font-weight: 600;
+  color: #f4f6fa;
+}
+
+.game-wrap {
+  position: relative;
+}
+
+canvas#game {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: #000;
+  border: 2px solid #2a2f3b;
+  border-radius: 10px;
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.5),
+    inset 0 0 40px rgba(110,231,255,0.06);
+}
+
+.hud {
+  display: flex;
+  justify-content: center;
+}
+
+.instructions {
+  margin: 10px 0 0;
+  color: var(--dim);
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+/* Accessibility: focus outline if canvas is keyboard-selected */
+canvas#game:focus {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}

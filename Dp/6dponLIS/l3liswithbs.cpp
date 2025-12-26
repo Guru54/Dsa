@@ -1,0 +1,23 @@
+#include<bits/stdc++.h>
+using namespace std;
+int liswithbs(vector<int> &arr){
+    vector<int> temp;
+    temp.push_back(arr[0]);
+    for(int i = 1;i<arr.size();i++){
+        if(arr[i]>temp.back()){
+             temp.push_back(arr[i]);
+        }else{
+            int ind = lower_bound(temp.begin(),temp.end(),arr[i]) -temp.begin();
+            temp[ind] = arr[ind];
+        }
+
+    }
+    return temp.size();
+
+}
+int main(){
+         vector<int> arr ={5,4,11,1,16,8 };
+         cout<<liswithbs(arr)<<endl;
+         
+ return 0;
+}

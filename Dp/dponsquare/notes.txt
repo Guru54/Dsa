@@ -1,0 +1,2 @@
+for max area - cal largest histogram fun with increasing array val and cal area and give max of it 
+for countsquare - calculate dp[i][j] by taking   // Minimum of top, left, top-left + 1 and than sum all dp val and return it;

@@ -1,0 +1,68 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+
+class Node {
+public:
+    int val;
+    Node *left;
+    Node *right;
+
+    Node(int val){
+        this->val = val;
+        left = right = nullptr;
+    }
+};
+
+Node* build_tree(vector<int> &arr, int i){
+    if(i >= arr.size()) {
+        return NULL;
+    }
+
+    Node* root = new Node(arr[i]);
+    if(arr[i]==-1){
+        root = nullptr;
+    }else{
+    root->left  = build_tree(arr, 2*i + 1);
+    root->right = build_tree(arr, 2*i + 2);
+    }
+
+    return root;
+}
+
+void printl(Node *root){
+    if(!root) return;
+
+    queue<Node*> q;
+    q.push(root);
+
+    while(!q.empty()){
+        Node *curr = q.front();
+        q.pop();
+
+        cout << curr->val << " ";
+
+        if(curr->left) q.push(curr->left);
+        if(curr->right) q.push(curr->right);
+    }
+}
+
+
+
+int height(Node* root){
+    if(!root)return 0;
+    int lh = height(root->left);
+    int rh = height(root->right);
+
+    return 1+max(lh,rh);
+}
+int main(){
+    vector<int> arr = {1,2,3,4,5,6,7};
+
+    Node *root = build_tree(arr, 0);
+   cout<<height(root);
+   
+ 
+
+    return 0;
+}
